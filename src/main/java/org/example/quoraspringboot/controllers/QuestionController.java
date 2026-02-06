@@ -26,7 +26,7 @@ public class QuestionController {
         return question.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @GetMapping
+    @PostMapping
     public ResponseEntity<Question> createQuestion(@RequestBody QuestionDTO questionDTO) {
         Question question = questionService.createQuestion(questionDTO);
         return ResponseEntity.ok(question);
@@ -36,5 +36,5 @@ public class QuestionController {
     public ResponseEntity<Void> deleteQuestion(@PathVariable Long id) {
         questionService.deleteQuestion(id);
         return ResponseEntity.ok().build();
-    };
+    }
 }
