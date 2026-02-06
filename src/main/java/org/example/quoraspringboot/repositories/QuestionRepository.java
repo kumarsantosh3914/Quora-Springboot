@@ -11,6 +11,6 @@ import java.util.Set;
 
 @Repository
 public interface QuestionRepository extends JpaRepository<Question, Long> {
-    @Query("SELECT q FROM Questions q JOIN q.tags t WHERE t.id IN :tagIds")
+    @Query("SELECT q FROM Question q JOIN q.tags t WHERE t.id IN :tagIds")
     Page<Question> findQuestionsByTags(Set<Long> tagIds, Pageable pageable);
 }
